@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Hamiboom!</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <p class="d-none font-text">Hello, world!</p>
+    <div class="d-none">
+        <canvas id="temp-canvas" class="d-none"></canvas>
+    </div>
+    <div class="main-container">
+        <div class="landing-page" id="landing-page">
+            <img src="assets/images/title.png" class="title-image" alt="landing-page">
+            <div class="options">
+                <button class="btn" id="btn-opt-for-someone">For Someone
+                    <img src="assets/images/users.svg" alt="arrow-right">
+                </button>
+                <button class="btn" id="btn-opt-for-me">For me! :3
+                    <img src="assets/images/user.svg" alt="arrow-right">
+                </button>
+            </div>
+        </div>
+        <div class="someone-container d-none" id="someone-container">
+            <div id="selection-page">
+                <div class="header">
+                    <img src="assets/images/back-icon.png" data-page="landing" class="back-icon">
+                    <img src="assets/images/header-img.gif" class="header-image">
+                    <h3>Choose a design!</h3>
+                </div>
+                <div class="body">
+                    <div class="templates-list">
+                        <div class="template-item" data-template="1">
+                            <img src="assets/images/templates/view1.png" alt="template-1">
+                        </div>
+                        <div class="template-item" data-template="2">
+                            <img src="assets/images/templates/view2.png" alt="template-2">
+                        </div>
+                        <div class="template-item" data-template="3">
+                            <img src="assets/images/templates/view3.png" alt="template-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="fillout-page" class="d-none">
+                <div class="header">
+                    <img src="assets/images/back-icon.png" data-page="selection" class="back-icon">
+                    <img src="assets/images/fill.gif" class="header-image">
+                    <h3>Fill Out Details :3</h3>
+                </div>
+                <div class="body">
+                    <div class="content bordered" id="canvas">
+                        <canvas id="fabricCanvas"></canvas>
+                    </div>
+                    <div class="inputs">
+                        <div class="form-input">
+                            <label for="">To:</label>
+                            <input id="someone-to-input" type="text" class="to-input" placeholder="Their name" maxlength="12">
+                        </div>
+                        <div class="form-input">
+                            <label for="">From:</label>
+                            <input id="someone-from-input" type="text" class="from-input" placeholder="Your name" maxlength="12">
+                        </div>
+                    </div>
+                    <button id="someone-create-btn" class="btn create-btn">
+                        <img src="assets/images/heart.png">
+                        Create!
+                        <img src="assets/images/heart.png">
+                    </button>
+                </div>
+            </div>
+            <div id="end-page" class="d-none">
+                <div class="header">
+                    <img src="assets/images/back-icon.png" data-page="fill" class="back-icon">
+                    <img src="assets/images/endtop.gif" class="header-image">
+                    <h3>YIPEEEEE!!!</h3>
+                </div>
+                <div class="body">
+                    <div class="bordered generated-image-container">
+                        <img src="" id="generated-image" alt="">
+                    </div>
+                    <div class="buttons-container">
+                        <button id="someone-download-btn" class="btn create-btn">
+                            <img src="assets/images/heart.png">
+                            Download!
+                            <img src="assets/images/heart.png">
+                        </button>
+                        <button id="someone-start-over-btn" class="btn create-btn">
+                            Start Over
+                        </button>
+                    </div>
+                    <p id="explode-text">explode.</p>
+                </div>
+            </div>
+        </div>
+        <div class="me-container d-none" id="me-container" data-page="1">
+            <img src="assets/images/back-icon.png" data-page="1" class="back-icon" alt="me-page1" id="me-back-icon">
+            <div id="page1">
+                <img src="assets/images/me/hi.gif" class="hi-image">
+                <div class="textbox">
+                    <div class="title">Hami!</div>
+                    <div class="content">
+                        <p id="typed-hi"></p>
+                    </div>
+                </div>
+                <p class="press-anywhere d-none">-Press anywhere on screen-</p>
+            </div>
+            <div id="page2" class="d-none">
+                <img src="assets/images/me/hearthold.gif" class="heart-hold-image">
+                <div class="textbox">
+                    <div class="title">Hami!</div>
+                    <div class="content">
+                        <p id="typed-really"></p>
+                        <p class="subtext">-Hami says shyly</p>
+                    </div>
+                </div>
+                <input type="text" class="name-input" id="name-input" placeholder="Enter your name" maxlength="12">
+                <button class="btn" id="send-btn">Send</button>
+            </div>
+            <div id="page3" class="d-none">
+                <div class="header">
+                    <img src="assets/images/title-cut.png" class="title-image reset-me-btn">
+                    <p>Happy Valentines!</p>
+                </div>
+                <div class="body">
+                    <img src="assets/images/me/letterseal.gif" alt="letter-image" id="letter-sealed" class="letter-sealed">
+                    <p>Tap to open!</p>
+                </div>
+                <img src="assets/images/me/corner.png" alt="corner" class="corner-image">
+            </div>
+            <div id="page4" class="d-none">
+                <div class="header">
+                    <img src="assets/images/title-cut.png" class="title-image reset-me-btn">
+                    <p>Happy Valentines!</p>
+                </div>
+                <div class="body">
+                    <img src="assets/images/me/blankletter.png" alt="letter-image" id="generated-letter" class="letter">
+                </div>
+                <img src="assets/images/me/letteropen.png" alt="letter" id="open-letter">
+                <img src="assets/images/me/corner.png" alt="corner" class="corner-image">
+            </div>
+        </div>
+        <div class="explode-container d-none" id="explode-container">
+            <img src="assets/images/explode.gif" alt="explode" id="explode-image">
+            <div class="after-explode d-none" id="after-explode">
+                <p>*dies*</p>
+                <img src="assets/images/ded.png" alt="after-explode">
+            </div>
+        </div>
+    </div>
+    <div id="loading-overlay" class="d-none">
+        <img src="assets/images/writing.gif" alt="loading">
+    </div>
+    <div class="pc-container">
+        <img src="assets/images/title.png" class="main-image">
+        <p>Please view on a mobile device &lt;3! </p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.0.0-beta.1/fabric.js"></script>
+    <script src="assets/js/fontfaceobserver.min.js"></script>
+    <script src="assets/js/typed.min.js"></script>
+    <script src="assets/js/curved.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
