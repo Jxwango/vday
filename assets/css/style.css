@@ -43,27 +43,34 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-  height: -webkit-fill-available;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
+  /* Fallback color so NO white ever shows */
+  background-color: #e53935;
+
+  /* Background image */
   background-image: url("../images/bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  min-width: 100vw;
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport: matches visible area on mobile */
-  height: 100%;
+  background-repeat: repeat;        /* IMPORTANT */
+  background-size: auto;
+  background-position: center top;
+
+  min-height: 100svh;               /* correct mobile unit */
+
   display: flex;
   justify-content: center;
   overflow-x: hidden;
-  /* Safe area for notched devices (e.g. iPhone) */
+
+  /* Safe areas (top AND bottom) */
+  padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
+
 
 .main-container {
   width: 100%;
