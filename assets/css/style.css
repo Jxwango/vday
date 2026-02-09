@@ -1,6 +1,7 @@
 :root {
   --main-color: #eb322f;
   --main-font: "WakuWaku", sans-serif;
+  color-scheme: light;
 }
 
 @font-face {
