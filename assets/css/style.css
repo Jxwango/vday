@@ -43,34 +43,40 @@
   box-sizing: border-box;
 }
 
+/* ✅ iOS fix: put background on html+body, remove fill-available hacks */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+
+  background-color: var(--main-color);
+  background-image: url("../images/bg.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: center top;
+}
+
 html {
-  height: 100%;
-  height: -webkit-fill-available;
+  height: auto;
 }
 
 body {
-  background-image: url("../images/bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  min-width: 100vw;
-  min-height: 100vh;
   min-height: 100dvh; /* Dynamic viewport: matches visible area on mobile */
-  height: 100%;
-  display: flex;
-  justify-content: center;
   overflow-x: hidden;
-  /* Safe area for notched devices (e.g. iPhone) */
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* ✅ remove these so iOS doesn't create "bands/boxing" */
+  display: block;
+  padding-bottom: 0;
 }
 
 .main-container {
   width: 100%;
-  min-width: 100vw;
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport: matches visible area on mobile */
-  height: 100%;
+  min-height: 100dvh;
+
+  /* ✅ move safe-area padding here (not on body) */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .landing-page {
@@ -156,11 +162,9 @@ body {
   );
 }
 
+/* ✅ iOS fix: avoid svh here */
 .someone-container .body {
-  max-height: calc(100svh - 200px);
-  /* max-height: calc(
-    100svh - 200px
-  );  */
+  max-height: calc(100dvh - 200px);
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -619,8 +623,9 @@ body {
   width: 150px;
 }
 
+/* ✅ since background is now on html+body, override both here */
 @media (min-width: 620px) {
-  body {
+  html, body {
     background-image: none;
     background-color: var(--main-color);
   }
