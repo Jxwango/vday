@@ -164,9 +164,18 @@ body {
 
 /* ✅ iOS fix: avoid svh here */
 .someone-container .body {
-  max-height: calc(100dvh - 200px);
+max-height: calc(100dvh - 200px);
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+
+  /* IMPORTANT: space for iOS Safari bottom bar + home indicator */
+  padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
+  scroll-padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
+}
+
+#fillout-page .body,
+#end-page .body {
+  padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
 }
 
 .someone-container .templates-list {
