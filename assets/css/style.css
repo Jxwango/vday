@@ -626,8 +626,16 @@ body {
 /* ✅ since background is now on html+body, override both here */
 @media (min-width: 620px) {
   html, body {
-    background-image: none;
+     background-image: none;
     background-color: var(--main-color);
+    height: 100%;
+  }
+
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
 
   .main-container {
@@ -638,3 +646,5 @@ body {
     display: flex;
   }
 }
+
+
