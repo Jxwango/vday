@@ -198,7 +198,13 @@ function initTexts(templateId) {
 
         const fillText = new fabric.Text('', {
             ...textOptions,
-            fill: '#f1698e'
+            fill: '#f1698e',
+            shadow: new fabric.Shadow({
+                color: '#fff',
+                blur: 0,
+                offsetX: 5,
+                offsetY: 5
+            })
         });
 
         toText = new fabric.Group([borderText, fillText], {
